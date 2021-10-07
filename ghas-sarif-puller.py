@@ -99,18 +99,25 @@ if __name__ == "__main__":
     logger.info(f" >> {org} / {repo}")
 
     if not arguments.ref:
-        logger.info('Ref not set, dynamically getting reference')
+        logger.debug('Ref not set, dynamically getting reference')
         ref = getGitHubRepositoryDefaultBranch(
             org,
             repo,
             token=arguments.token
         )
-        logger.info(f'Discovered reference :: {ref}')
+        logger.debug(f'Discovered reference :: {ref}')
+    else:
+        ref = arguments.ref
+
+    if not ref.startswith('refs/heads/'):
+        ref = f"refs/heads/{ref}"
+
+    logger.info(f'Refernece :: {ref}')
 
     sarif = getCodeScanningSARIF(
         org,
         repo,
-        ref=arguments.ref,
+        ref=ref,
         token=arguments.token
     )
 
