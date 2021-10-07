@@ -35,5 +35,5 @@ pipenv run python ./ghas-sarif-puller.py --help
 ```bash
 pipenv run python ./ghas-sarif-puller.py \
     -r "GeekMasher/Pixi" \
-    -o "geekamsher-pixi.sarif"
+    -o "geekmasher-pixi.sarif"
 ```
