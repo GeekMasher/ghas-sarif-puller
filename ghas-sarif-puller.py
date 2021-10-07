@@ -57,7 +57,7 @@ def getCodeScanningSARIF(org: str, repo: str, ref: str, token: str):
     )
     data = r.json()
 
-    if data.get('message'):
+    if isinstance(data, dict) and data.get('message'):
         logger.warning(f"Message :: {data.get('message')}")
 
     sarif_url = None
@@ -74,8 +74,6 @@ def getCodeScanningSARIF(org: str, repo: str, ref: str, token: str):
             },
         )
         data = r.json()
-
-        print(data)
 
         if r.status_code == 200 and len(data) > 0:
             return data
