@@ -5,10 +5,10 @@ GitHub Advanced Security to pull the SARIF
 ## Usage
 
 ```bash
-# Install dependencies
+# Install dependencies
 pipenv install
 
-# Run help
+# Run help
 pipenv run python ./ghas-sarif-puller.py --help
 ```
 
@@ -30,7 +30,7 @@ pipenv run python ./ghas-sarif-puller.py --help
    -o OUTPUT, --output OUTPUT
 ~~~
 
-### Example Command
+### Example Command
 
 ```bash
 pipenv run python ./ghas-sarif-puller.py \
